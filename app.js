@@ -11,13 +11,11 @@ function searchMeal(e) {
   e.preventDefault();
   resultHeading.innerHTML = ""; // your are looking for ""
   const term = search.value;
-  console.log(term);
 
   if (term.trim()){
       fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
       .then(res => res.json())
       .then( (data) => {
-          console.log(data);
 
         resultHeading.innerHTML = `<h4 class="d-flex justify-content-center p-5">your are looking for '${term}' </h4>`;
         if (data.meals === null) {
@@ -29,7 +27,7 @@ function searchMeal(e) {
              mealsEl.innerHTML = data.meals
             .map(
                 (meal) => `
-                <div class = "meal">
+                <div class = "meal" >
                 <div class="meal-box">
                 <img class="meal-image" src="${meal.strMealThumb}" />
                 <h3 class="d-flex justify-content-center">${meal.strMeal}</h3>
@@ -49,4 +47,6 @@ function searchMeal(e) {
       alert("please enter meal name");
   }
 }
+
   submit.addEventListener("submit", searchMeal);
+
