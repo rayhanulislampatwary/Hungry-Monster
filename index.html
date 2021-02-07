@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Finder</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container p-5" >
+    
+      <h1 class="d-flex justify-content-center">Meal Finder</h1> <br>
+      <div class="d-flex justify-content-center">
+
+
+        <form class="flex" id="submit">
+          <input type="text" id="search" placeholder="Search for meal" />
+          <button class="search-btn btn-success" type="submit">
+            <i class="fa fa-search"></i> Search
+          </button>
+        </form>
+        
+      </div>
+   
+
+
+      <!----------------------result area-------------->
+
+      <div id="result-heading"></div>
+      <div id="meals"></div>
+      <div id="single-meal"></div>
+
+
+
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
