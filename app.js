@@ -1,3 +1,4 @@
+// id cell
 const search = document.getElementById("search"),
   submit = document.getElementById("submit"),
 
@@ -7,17 +8,17 @@ const search = document.getElementById("search"),
 
 
   
-function searchMeal(e) {
-  e.preventDefault();
-  resultHeading.innerHTML = ""; // your are looking for ""
-  const term = search.value;
+function searchMeal(element) {
+  element.preventDefault();
+  
+  const mealItem = search.value;
 
-  if (term.trim()){
-      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+  if (mealItem.trim()){
+      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealItem}`)
       .then(res => res.json())
       .then( (data) => {
 
-        resultHeading.innerHTML = `<h4 class="d-flex justify-content-center p-5">your are looking for '${term}' </h4>`;
+        resultHeading.innerHTML = `<h4 class="d-flex justify-content-center p-5">your are looking for '${mealItem}' </h4>`;
         if (data.meals === null) {
             resultHeading.innerHTML = `
             <h3 class="d-flex justify-content-center p-5"><i class="fas fa-frown"></i>  Sorry! This Item Not Founded </h3>
@@ -35,15 +36,12 @@ function searchMeal(e) {
                 </div>
                 
                 </div>
-                `
+               `
             )
             .join("");     
           }
-
       });
-
-
-      search.value = "";
+      search.value ="";
   }
   else {
       alert("please enter meal name");
@@ -65,7 +63,7 @@ const singleItem = name =>{
 
 const singleItemShow = item => {
   const mealSingleItem=item.meals[0];
-  single_mealEl.innerHTML = `
+  single_mealEl.innerHTML = ` <br>
   <div class="d-flex justify-content-center ">
   <div class="single-card">
   <img class="single-meal-img" src="${mealSingleItem.strMealThumb}">
@@ -80,7 +78,6 @@ const singleItemShow = item => {
   <h6><i class="fas fa-chevron-circle-right"></i> ${mealSingleItem.strIngredient7}</h6>
   <h6><i class="fas fa-chevron-circle-right"></i> ${mealSingleItem.strIngredient8}</h6>
   <h6><i class="fas fa-chevron-circle-right"></i> ${mealSingleItem.strIngredient9}</h6>
-  <h6><i class="fas fa-chevron-circle-right"></i> ${mealSingleItem.strIngredient10}</h6>
   </div>
   </div>
   `
